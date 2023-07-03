@@ -1,0 +1,30 @@
+.list-table,
+th {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 8px;
+  margin: 40px;
+  background-color: antiquewhite;
+}
+.list-table th {
+  min-width: 170px;
+}
+
+.table-wrapper {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.open-modal-button {
+  padding: 7px;
+  background-color: rgb(0, 0, 126);
+  color: white;
+  font-size: 1.5em;
+  border: 1px solid white;
+}
+.open-modal-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
