@@ -11,27 +11,33 @@ function FormModal(props) {
     const items = props.items;
     for (let i = 0; i < items.length; i++) {
       const element = items[i];
-      if (i === secondCounter && firstItemValue > secondItemValue) {
+      if (i === counter && firstItemValue > secondItemValue) {
+        console.log('prvi if', secondCounter, i, element);
         element.score += 1;
       }
-      if (i === secondCounter + 1 && secondItemValue > firstItemValue) {
+      if (i === secondCounter && secondItemValue > firstItemValue) {
+        console.log('drugi if', secondCounter, i, element);
         element.score += 1;
       }
     }
+
     props.updateItems(items);
+
     setsecondCounter(secondCounter + 1);
-    console.log(counter, secondCounter);
+
     if (secondCounter === items.length - 1) {
-      setcounter(secondCounter + 1);
-  
-      setsecondCounter(counter + 1);
-     
+      setcounter(counter + 1);
+      setsecondCounter(counter + 2);
+    }
+    if (counter === items.length - 2) {
+      props.closeForm();
     }
   };
   return (
-    <div>
+    <div className="overlay">
       <div className="modal-window">
         <div className="close-button-wrapper">
+          <div className="modal-title">Compare all items</div>
           <div className="close-button" onClick={props.closeForm}>
             X
           </div>
@@ -44,7 +50,8 @@ function FormModal(props) {
                 <div className="item" key={item.name}>
                   <div className="item-name">{item.name}</div>
                   <input
-                    required
+                    min="0"
+                    defaultValue={firstItemValue}
                     type="number"
                     onChange={(e) => {
                       setfirstItemValue(e.target.value);
@@ -60,9 +67,11 @@ function FormModal(props) {
                 <div className="item" key={item.name}>
                   <div className="item-name">{item.name}</div>
                   <input
-                    required
+                    min="0"
                     type="number"
+                    defaultValue={secondItemValue}
                     onChange={(e) => {
+                      console.log('druga', item.name, e.target.value);
                       setsecondItemValue(e.target.value);
                     }}
                   />

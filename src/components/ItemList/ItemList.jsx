@@ -34,6 +34,7 @@ function ItemList() {
   const [formOpened, setformOpened] = useState(false);
   return (
     <div className="table-wrapper">
+      <h2>GRM test app</h2>
       <table className="list-table">
         <thead>
           <tr>

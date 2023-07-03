@@ -21,8 +21,9 @@ th {
   padding: 7px;
   background-color: rgb(0, 0, 126);
   color: white;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border: 1px solid white;
+  border-radius: 4px;
 }
 .open-modal-button:hover {
   cursor: pointer;
