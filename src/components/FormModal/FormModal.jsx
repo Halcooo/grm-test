@@ -12,11 +12,9 @@ function FormModal(props) {
     for (let i = 0; i < items.length; i++) {
       const element = items[i];
       if (i === counter && firstItemValue > secondItemValue) {
-        console.log('prvi if', secondCounter, i, element);
         element.score += 1;
       }
       if (i === secondCounter && secondItemValue > firstItemValue) {
-        console.log('drugi if', secondCounter, i, element);
         element.score += 1;
       }
     }
@@ -71,7 +69,6 @@ function FormModal(props) {
                     type="number"
                     defaultValue={secondItemValue}
                     onChange={(e) => {
-                      console.log('druga', item.name, e.target.value);
                       setsecondItemValue(e.target.value);
                     }}
                   />
